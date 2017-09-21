@@ -1,0 +1,57 @@
+$def with (books,status,id,name)
+<html>
+<title>Return A Book</title>
+<link rel="stylesheet" type="text/css" href="/static/header_styles.css">
+
+
+<div class="header">
+
+    <div class="nav">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/checkout">Checkout</a></li>
+        <li><a href="/checkin">Return</a></li>
+        <li><a href="/admin">Tools</a></li>
+    </ul>
+    </div>
+
+      <div class="logo"><a href="/">
+      <img src="/static/images/byulogo.png" sizes="(max-width: 709px) 85vw, (max-width: 909px) 81vw, (max-width: 1362px) 88vw, 1200px" width="405" height="30" style="margin-top:8px;margin-left:5px;" alt="Mathematics Department">
+      </a></div>
+
+</div>
+
+$if status:
+    <div class="bod">
+        <h3>Books out for $name</h3>
+        Select which book to return<br/><br/>
+        <form method="POST" action="/remove">
+            <select name="b">
+	        $for b in books:
+	            <option value=$b>$b</option>
+	        </select>
+	        <br/><br/>
+	        <input type="submit" value="Return Book">
+		<input type="hidden" name="ID" value=$id>
+	</form>
+
+	<a href="/checkin">[Back to Returns]</a>
+
+    </div>
+
+$else:
+    <div class="bod">
+    <h3>No Books Found</h3>
+    The selected student (Id number: $id) does not have books checked out.
+    <br/>
+    Please try again.
+    <br/><br/>
+    <a href="/checkin">[Back to Returns]</a>
+    </div>
+
+<div class="footer">
+BYU Department of Mathematics 2017
+</div>
+
+</html>
+    

@@ -1,0 +1,47 @@
+$def with (status,date,num_emails)
+<html>
+<title>Email Confirmation</title>
+
+<div class="header">
+
+    <div class="nav">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/checkout">Checkout</a></li>
+        <li><a href="/checkin">Return</a></li>
+        <li><a href="/admin">Tools</a></li>
+    </ul>
+    </div>
+
+      <div class="logo"><a href="/">
+      <img src="/static/images/byulogo.png" sizes="(max-width: 709px) 85vw, (max-width: 909px) 81vw, (max-width: 1362px) 88vw, 1200px" width="405" height="30" style="margin-top:8px;margin-left:5px;" alt="Mathematics Department">
+      </a></div>
+
+</div>
+
+$if status:
+<div class="bod">
+  <h3>Please review the following information</h3>
+  <li>Your email will be sent to the owners of all books checked out before <strong>$date</strong></li>
+  <li>The total number of emails is: <strong>$num_emails</strong></li>
+  <p>If this is correct, press Send.</p>
+  <form method="SEND">
+    <input type="submit" value="Send">
+  </form>
+  <a href="/email">Back to Email</a>
+</div>
+
+$else
+<div class="bod">
+  <h3>Your request was not processed</h3>
+  <li>Be sure to enter the date exactly as specified.</li>
+  <p>If problems persist contact DJ</p>
+  <a href="/email">Back to Email</a>
+</div>
+
+<div class="footer">
+BYU Department of Mathematics 2017
+</div>
+</html>
+  
+

@@ -1,0 +1,67 @@
+$def with (status,error_message,UniqueID,name)
+<html>
+<title>Check Out A Book</title>
+
+<style>
+.list {
+      margin-left: 20px;
+}
+</style>
+
+<link rel="stylesheet" type="text/css" href="/static/header_styles.css">
+
+
+<div class="header">
+
+    <div class="nav">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/checkout">Checkout</a></li>
+        <li><a href="/checkin">Return</a></li>
+        <li><a href="/admin">Tools</a></li>
+    </ul>
+    </div>
+
+      <div class="logo"><a href="/">
+      <img src="/static/images/byulogo.png" sizes="(max-width: 709px) 85vw, (max-width: 909px) 81vw, (max-width: 1362px) 88vw, 1200px" width="405" height="30" style="margin-top:8px;margin-left:5px;" alt="Mathematics Department">
+      </a></div>
+
+</div>
+
+$if status:
+    <div class="bod">
+    <h3>Checkout Successful!</h3>
+     Wasn't that easy? Keep enjoying your peaceful day at work.
+    <br/><br/>
+    <a href="/checkout">[Check Out Another Book]</a><br/>
+    
+    </div>
+
+$else:
+    $if UniqueID:
+        <div class="bod">
+            <h3>Your request was not processed</h3>
+            The following error(s) occured: $error_message
+	    <br>If problems persist contact DJ
+            <br/><br/>
+            <a href="/checkout" >[Back to Checkout]</a>
+	</div>
+    $else:
+	<div class="bod">
+	    <h3>The ID you entered is not unique</h3>
+	    The name associated with that ID in the database is <strong>$name</strong>.<br/><br/>
+	    There are two problems that may have occured:<br/></br> 
+	    1. You are checking out a book for $name and mispelled the name or miskeyed the ID.
+	    If this is the case, simply go back to checkout and try again.<br/><br/>
+	    2. On the other hand, if you spelled this person's name wrong or entered their ID wrong the <em>first time</em> you checked out a book to them, this will be trickier.
+	    You will need to remove their old entry and reenter it correctly. 
+	    Instructions for doing this are on the <a href="/">homepage</a>.<br/><br/>
+	    <a href="/checkout">[Back to Checkout]</a>
+	    
+		
+<div class="footer">
+BYU Department of Mathematics 2017
+</div>
+
+</html>
+

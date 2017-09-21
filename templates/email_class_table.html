@@ -1,0 +1,78 @@
+$def with (info,no_space,given_class,status)
+<html>
+<!-- email_class_table.html -->
+
+<title>Email By Class</title>
+<link rel="stylesheet" type="text/css" href="/static/header_styles.css">
+
+<div class="header">
+
+    <div class="nav">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/checkout">Checkout</a></li>
+        <li><a href="/checkin">Return</a></li>
+        <li><a href="/admin">Tools</a></li>
+    </ul>
+    </div>
+
+      <div class="logo"><a href="/">
+      <img src="/static/images/byulogo.png" sizes="(max-width: 709px) 85vw, (max-width: 909px) 81vw, (max-width: 1362px) 88vw, 1200px" width="405" height="30" style="margin-top:8px;margin-left:5px;" alt="Mathematics Department">
+      </a></div>
+
+</div>
+
+
+<style>
+        table, th, td {
+        border: 1px solid black;
+	border-collapse: collapse;
+	}
+	th, td {
+	padding: 5px;
+	}
+</style>
+
+
+
+<div class="bod">
+
+$if status:
+    
+    <h3>Confirm that the following information is correct</h3>
+ 
+    Pressing send will generate a reminder email from <strong>noreply@mathematics.byu.edu </strong> and send it to every student/instuctor in the list below. The email will contail the following:<br/><br/>
+
+    <em><p>Dear [Name],</p>
+
+    <p>You have the following textbooks checked out from the BYU Mathematics Department:</p> 
+    <p>[Book 1]<br/>[Book 2]<br/>[Etc. ]</p>
+    <p>Textbooks need to be renewed or returned at the end of each semester. Renew or return your textbook with Lonette Stoddard in TMCB 276. Failure to renew or return may result in charges to your student account.</p>
+
+    <p>Thank you!</p> </em>
+
+    <form method="GET" action="/emailclasssend">
+        <input type="submit" value="Send Email">
+        <input type="hidden" name="given_class" value=$no_space>
+    </form>
+
+    <h3>Students/Instructors with $given_class books</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+    $for i in info:
+        <tr>
+            <td>$i[0]</td>
+            <td>$i[1]</td>
+        </tr>
+
+    </table>
+
+$else:
+    <h3>No entries found for class $given_class</h3>
+    Please try a different class name.<br/>
+    <a href="/emailclass">[Try again]</a>
+</div>
+<html>

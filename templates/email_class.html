@@ -1,0 +1,59 @@
+<html>
+<!-- email_class.html -->
+
+<title>Email By Class</title>
+<link rel="stylesheet" type="text/css" href="/static/header_styles.css">
+
+<div class="header">
+
+    <div class="nav">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/checkout">Checkout</a></li>
+        <li><a href="/checkin">Return</a></li>
+        <li><a href="/admin">Tools</a></li>
+    </ul>
+    </div>
+
+      <div class="logo"><a href="/">
+      <img src="/static/images/byulogo.png" sizes="(max-width: 709px) 85vw, (max-width: 909px) 81vw, (max-width: 1362px) 88vw, 1200px" width="405" height="30" style="margin-top:8px;margin-left:5px;" alt="Mathematics Department">
+      </a></div>
+
+</div>
+
+<div class="bod">
+  <h3>Email By Class</h3>
+
+  <p>Enter a class below. After confirming that what you have entered is
+    correct, clicking send will gererate an email from
+    <strong>books@mathematics.byu.edu </strong>. This email will go to
+    all students or professors in the database that checked out a book
+    for the given class.</p>
+
+  <p>The email will contail the following:</p>
+
+  <em><p>Dear [Name],</p>
+
+  <p>You have the following textbooks checked out from the BYU Mathematics Department</p> 
+  [Book 1]<br/>
+  [Book 2]<br/>
+  [Etc...]
+  <p>Textbooks need to be renewed or returned at the end of each semester. Renew or return your textbook with Lonette Stoddard in TMCB 276. Failure to renew or return may result in charges to your student account.</p>
+
+  <p>Thank you!</p> </em>
+
+  <p>Enter A Math Class (e.g. Math 112)</p>
+
+  <form method="POST">
+    <label>Math Class: </label> <input type=text name="given_class">
+    <input type="submit">
+  </form>
+  <br/>
+
+</div>
+
+<div class="footer">
+BYU Department of Mathematics 2017
+</div>
+
+</html>

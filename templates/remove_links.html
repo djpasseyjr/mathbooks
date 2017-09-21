@@ -1,0 +1,71 @@
+<html>
+<title>Search and Remove Books</title>
+
+<link rel="stylesheet" type="text/css" href="/static/header_styles.css">
+<div class="header">
+
+    <div class="nav">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/checkout">Checkout</a></li>
+        <li><a href="/checkin">Return</a></li>
+        <li><a href="/admin">Tools</a></li>
+    </ul>
+    </div>
+
+      <div class="logo"><a href="/">
+      <img src="/static/images/byulogo.png" sizes="(max-width: 709px) 85vw, (max-width: 909px) 81vw, (max-width: 1362px) 88vw, 1200px" width="405" height="30" style="margin-top:8px;margin-left:5px;" alt="Mathematics Department">
+      </a></div>
+
+</div>
+
+<div class="bod">
+<h2>Remove Books</h2>
+  Fill out one of the following fields and press submit. A table will be generated containing all the entries to be deleted. After pressing confirm on the next page, all entries in the table will be removed from the database. <br/><br/>
+     <strong>Remove Books By Student</strong> <br>
+
+
+        <p>Enter A Student ID Number</p>
+        <form method="GET" action="/remove_student">
+	  <label>ID Number: </label> <input type=text name="id">
+	  <input type="submit">
+	</form>
+        <br/>
+
+
+      <strong>Remove Books by Class</strong><br>
+
+	<p>Enter A Math Class (e.g. Math 112)</p>
+	<form method="GET" action="remove_books_class">
+	  <label>Math Class: </label> <input type=text name="given_class">
+	  <input type="submit">
+	</form>
+	<br/>
+
+
+      <strong>Remove Books by Date</strong> <br>
+
+        <form method="GET" action="/remove_books_date">
+	  <table>
+	    <tr><td><label>Year (yyyy):</label>
+              <td><input type="text" name="year">
+	    <tr><td><label>Month (mm):</label>
+              <td><input type="text" name="mon">
+	    <tr><td><label>Day (dd):</label>
+              <td><input type="text" name="day">
+	  </table>
+	  <input type="submit">
+	</form>
+
+      <strong>Clear Database</strong>
+      <form method="GET" action="/clear">
+	<br/><input type="submit" value="Confirm Clear">
+      </form>
+
+</div>
+
+<div class="footer">
+BYU Department of Mathematics 2017
+</div>
+
+</html>

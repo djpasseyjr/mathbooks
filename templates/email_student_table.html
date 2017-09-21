@@ -1,0 +1,53 @@
+$def with (info,id,status)
+<html>
+<!-- email_student_table.html -->
+
+<title>Email A Student</title>
+<link rel="stylesheet" type="text/css" href="/static/header_styles.css">
+
+<div class="header">
+
+    <div class="nav">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/checkout">Checkout</a></li>
+        <li><a href="/checkin">Return</a></li>
+        <li><a href="/admin">Tools</a></li>
+    </ul>
+    </div>
+
+      <div class="logo"><a href="/">
+      <img src="/static/images/byulogo.png" sizes="(max-width: 709px) 85vw, (max-width: 909px) 81vw, (max-width: 1362px) 88vw, 1200px" width="405" height="30" style="margin-top:8px;margin-left:5px;" alt="Mathematics Department">
+      </a></div>
+
+</div>
+
+$if status:
+    <div class='bod'>
+        <h3>Confirm that the following information is correct</h3>
+	Student Name: <strong>$info[0]</strong> Email address: <strong>$info[1]</strong> <br/><br/>
+
+	Pressing send will generate a reminder email from books@mathematics.byu.edu and send it to the student above.
+
+	<br/><br/>
+	<form method="GET" action="/emailstudentsend">
+            <input type="submit" value="Send Email">
+            <input type="hidden" name="ID" value=$id>
+	</form>
+	<a href="/email">[Back to Email]</a>
+  
+    </div>
+$else:
+    <div class="bod">
+    <h3>No Books Found</h3>
+    The selected student (Id number: $id) does not have books checked out. Please try again.
+    <br/><br/>
+    <a href="/email">[Back to Email]</a>
+    </div>
+
+
+<div class="footer">
+BYU Department of Mathematics 2017
+</div>
+
+</html>

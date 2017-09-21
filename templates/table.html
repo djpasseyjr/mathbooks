@@ -1,0 +1,62 @@
+$def with (info,status)
+<html>
+<title>Books Out</title>
+
+<link rel="stylesheet" type="text/css" href="/static/header_styles.css">
+<div class="header">
+
+    <div class="nav">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/checkout">Checkout</a></li>
+        <li><a href="/checkin">Return</a></li>
+        <li><a href="/admin">Tools</a></li>
+    </ul>
+    </div>
+
+      <div class="logo"><a href="/">
+      <img src="/static/images/byulogo.png" sizes="(max-width: 709px) 85vw, (max-width: 909px) 81vw, (max-width: 1362px) 88vw, 1200px" width="405" height="30" style="margin-top:8px;margin-left:5px;" alt="Mathematics Department">
+      </a></div>
+
+</div>
+
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+}
+</style>
+
+$if status:
+    <div class="bod">
+    <h3>Books Out</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+	    <th>ID</th>
+	    <th>Class</th>
+	    <th>Book</th>
+	    <th>Email</th>
+	    <th>Date</th>
+	</tr>
+    $for i in info:
+            <tr>
+	        <td>$i[0]</td>
+		<td>$i[1]</td>
+		<td>$i[2]</td>
+		<td>$i[3]</td>
+		<td>$i[4]</td>
+		<td>$i[5]</td>
+	    </tr>
+    </table>
+    </div>
+
+<div class="footer">
+BYU Department of Mathematics 2017
+</div>
+
+
+</html>

@@ -3,15 +3,16 @@
   
 ### What is this repository for? ###
 
-* This is a project for the BYU Math department. It streamlines textbook checkout.  
-* Version 1.0  
+* This is a web application for the BYU Math department. It streamlines textbook checkout.  
   
 ### How do I get set up? ###
   
 * Dependencies:  
   This program requres Python 2 and the following libraries: mysquite3, web, validate_email.  
   This program requires PHP  
-  This program requires Apache2  
+  This program requires Apache2
+  
+ * It was designed to run on OS X 10.13
   
  * Copy the mathbooks folder to the /Library/WebServer/Documents folder.  
    
